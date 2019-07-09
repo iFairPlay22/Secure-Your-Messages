@@ -52,7 +52,6 @@
     },
     methods: {
       encrypt() {
-        console.log("encrypt");
         this.cryptText = "";
         for (let i = 0; i < this.normalText.length; i++) {
           let letter = this.normalText.charAt(i);
@@ -61,7 +60,6 @@
         }
       },
       decrypt() {
-        console.log("decrypt");
         this.normalText = "";
         for (let i = 0; i < this.cryptText.length; i++) {
           let encryptLetter = this.cryptText.charAt(i);
