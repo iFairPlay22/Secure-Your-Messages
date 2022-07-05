@@ -1,4 +1,4 @@
-# Secure your messages
+# Secure your messages 🤨
 
 ## Contexte 
 
