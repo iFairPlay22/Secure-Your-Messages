@@ -1,23 +1,23 @@
 <template>
 
-  <div id="mainContainer">
+  <div class="app-container">
     
     <textarea-autosize 
       class="bull" 
-      placeholder="Saisissez le texte à encoder" 
+      placeholder="Encode..." 
       v-model="normalText"
       @keyup.native="encrypt"
     >
       {{ normalText }}
     </textarea-autosize>
     
-    <p>
+    <p class="app-container-arrow">
       ⟺
     </p>
 
     <textarea-autosize 
       class="bull" 
-      placeholder="Saisissez le texte à décrypter" 
+      placeholder="Decode..." 
       v-model="cryptText"
       @keyup.native="decrypt"
     >
@@ -28,15 +28,11 @@
 
 </template>
 
-<script>
-  import Vue from 'vue'
-  import VueTextareaAutosize from 'vue-textarea-autosize'
-
-  Vue.use(VueTextareaAutosize)
-  
+<script>  
   export default {
     name: 'appcryptcontainer',
     data() {
+      // Should be in a API
       return {
         normalText: "",
         cryptText: "",
@@ -52,6 +48,7 @@
     },
     methods: {
       encrypt() {
+        // Should be in a API
         this.cryptText = "";
         for (let i = 0; i < this.normalText.length; i++) {
           let letter = this.normalText.charAt(i);
@@ -60,6 +57,7 @@
         }
       },
       decrypt() {
+        // Should be in a API
         this.normalText = "";
         for (let i = 0; i < this.cryptText.length; i++) {
           let encryptLetter = this.cryptText.charAt(i);
@@ -68,6 +66,7 @@
         }
       },
       initMap(object) {
+        // Should be in a API
         const map = new Map();
         for (let i = 0; i < object.keyArray.length; i++) {
           map.set(object.keyArray[i], object.valueArray[i]);
@@ -79,24 +78,38 @@
 </script>
 
 <style>
-  #mainContainer {
-    margin-top: 20px;
-    margin-bottom: 20px;
+
+  @media (max-width: 825px) {
+    .app-container-arrow {
+      display: none;
+    }
+
+    .bull {
+      width: 75% !important;
+    }
+  }
+
+  .app-container {
+    margin: 50px 30px;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    flex-wrap: wrap;
     color: black;
   }
 
   .bull {
-    width: 35%;
+    width: 40%;
+    min-width: 125px;
+    min-height: 150px;
     padding: 15px;
+    margin: 15px;
     border: 2px solid #ccc;
     color: #ccc;
     border-radius: 4px;
   }
 
-  #mainContainer > textarea {
+  .app-container > textarea {
     box-sizing: border-box;
     outline: none;
     resize: none;
@@ -104,14 +117,4 @@
     text-align: center;
   }
 
-  #mainContainer > textarea:focus {
-    color:grey;
-  }
-
-  #mainContainer > p {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    height: 100%;
-  }
 </style>

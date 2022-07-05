@@ -1,7 +1,6 @@
 <template>
-  <header>
-    <h1> EasyCrypt </h1>
-    <img src="../assets/logo.png" alt="logo" id="headerImage"/>
+  <header class="header-container">
+    <h1 class="header-title"> Secure your messages 😎 </h1>
   </header>
 </template>
 
@@ -12,17 +11,23 @@
 </script>
 
 <style>
-  header {
-    background-color: black;
-    height: 50px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  @media (max-width: 640px) {
+    .header-container {
+      height: 200px;
+    }
   }
 
-  #headerImage {
-    width: 40px;
-    height: 40px;
+  .header-container {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(187,186,208);
+    background: linear-gradient(180deg, rgba(187,186,208,1) 0%, rgba(210,210,226,1) 50%, rgba(255,255,255,1) 100%); 
+  }
+
+  .header-title {
+    margin-top: 2px;
+    text-align: center;
   }
 </style>

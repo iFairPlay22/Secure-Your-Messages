@@ -1,24 +1,20 @@
 <template>
-  <div id="appContainer">
-    <apphead/>
+  <div id="app">
+    <app-head/>
 
-    <appcryptcontainer/>
-
-    <appfooter/>
+    <app-container/>
   </div>
 </template>
 
 <script>
-  import apphead from "./components/apphead";
-  import appcryptcontainer from "./components/appcryptcontainer";
-  import appfooter from "./components/appfooter";
+  import AppHead from "./components/AppHead";
+  import AppContainer from "./components/AppContainer";
 
   export default {
     name: 'app',
     components: {
-        apphead,
-        appcryptcontainer,
-        appfooter
+        AppHead,
+        AppContainer
     }
   }
 </script>
@@ -26,6 +22,6 @@
 <style>
   body {
     margin: 0;
-    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
 </style>
